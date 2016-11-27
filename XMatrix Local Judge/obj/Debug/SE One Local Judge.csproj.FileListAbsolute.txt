@@ -1,0 +1,18 @@
+D:\Projects\SE One Local Judge\SE One Local Judge\obj\Debug\SE One Local Judge.csprojResolveAssemblyReference.cache
+D:\Projects\SE One Local Judge\SE One Local Judge\obj\Debug\SE One Local Judge.csproj.GenerateResource.Cache
+C:\Users\Zhenly\Documents\Tencent Files\573223251\FileRecv\SE One Local Judge\SE One Local Judge\obj\Debug\SE One Local Judge.exe
+C:\Users\Zhenly\Documents\Tencent Files\573223251\FileRecv\SE One Local Judge\SE One Local Judge\obj\Debug\SE One Local Judge.pdb
+C:\Users\Zhenly\Documents\Tencent Files\573223251\FileRecv\SE One Local Judge\SE One Local Judge\bin\Debug\SE One Local Judge.exe
+C:\Users\Zhenly\Documents\Tencent Files\573223251\FileRecv\SE One Local Judge\SE One Local Judge\bin\Debug\SE One Local Judge.pdb
+C:\Users\Zhenly\Documents\Tencent Files\573223251\FileRecv\SE One Local Judge\SE One Local Judge\obj\Debug\SE One Local Judge.csprojResolveAssemblyReference.cache
+C:\Users\Zhenly\Documents\Tencent Files\573223251\FileRecv\SE One Local Judge\SE One Local Judge\obj\Debug\SE_One_Local_Judge.Form1.resources
+C:\Users\Zhenly\Documents\Tencent Files\573223251\FileRecv\SE One Local Judge\SE One Local Judge\obj\Debug\SE_One_Local_Judge.Properties.Resources.resources
+C:\Users\Zhenly\Documents\Tencent Files\573223251\FileRecv\SE One Local Judge\SE One Local Judge\obj\Debug\SE One Local Judge.csproj.GenerateResource.Cache
+C:\Users\Zhenly\Documents\Tencent Files\573223251\FileRecv\SE One Local Judge\SE One Local Judge\obj\Debug\SE_One_Local_Judge.formsetting.resources
+D:\Projects\SE One Local Judge\SE One Local Judge\obj\Debug\SE_One_Local_Judge.formsetting.resources
+D:\Projects\SE One Local Judge\SE One Local Judge\bin\Debug\XMatrix Local Judge.exe
+D:\Projects\SE One Local Judge\SE One Local Judge\bin\Debug\XMatrix Local Judge.pdb
+D:\Projects\SE One Local Judge\SE One Local Judge\obj\Debug\XMatrix_Local_Judge.Properties.Resources.resources
+D:\Projects\SE One Local Judge\SE One Local Judge\obj\Debug\XMatrix Local Judge.exe
+D:\Projects\SE One Local Judge\SE One Local Judge\obj\Debug\XMatrix Local Judge.pdb
+D:\Projects\SE One Local Judge\SE One Local Judge\obj\Debug\XMatrix_Local_Judge.Form1.resources

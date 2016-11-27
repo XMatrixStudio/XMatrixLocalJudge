@@ -1,0 +1,9 @@
+D:\Projects\XMatrix Local Judge\XMatrix Local Judge\obj\Debug\XMatrix Local Judge.exe
+D:\Projects\XMatrix Local Judge\XMatrix Local Judge\obj\Debug\XMatrix Local Judge.pdb
+D:\Projects\XMatrix Local Judge\XMatrix Local Judge\bin\Debug\XMatrix Local Judge.exe
+D:\Projects\XMatrix Local Judge\XMatrix Local Judge\bin\Debug\XMatrix Local Judge.pdb
+D:\Projects\XMatrix Local Judge\XMatrix Local Judge\obj\Debug\XMatrix Local Judge.csprojResolveAssemblyReference.cache
+D:\Projects\XMatrix Local Judge\XMatrix Local Judge\obj\Debug\XMatrix_Local_Judge.Form1.resources
+D:\Projects\XMatrix Local Judge\XMatrix Local Judge\obj\Debug\XMatrix_Local_Judge.Properties.Resources.resources
+D:\Projects\XMatrix Local Judge\XMatrix Local Judge\obj\Debug\SE_One_Local_Judge.formsetting.resources
+D:\Projects\XMatrix Local Judge\XMatrix Local Judge\obj\Debug\XMatrix Local Judge.csproj.GenerateResource.Cache
