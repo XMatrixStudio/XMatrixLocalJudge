@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -24,6 +25,7 @@ namespace XMatrix_Local_Judge
         {
             InitializeComponent();
             Init();
+
         }
 
         private void Init()
@@ -49,23 +51,7 @@ namespace XMatrix_Local_Judge
            // RealAction("ping.exe", "192.168.123.1");
             //调用进程
             
-            Process process = new Process();
-            process.StartInfo.FileName = "cmd.exe";
-            process.StartInfo.UseShellExecute = false;
-            process.StartInfo.RedirectStandardInput = true;
-            process.StartInfo.RedirectStandardOutput = true;
-            process.StartInfo.RedirectStandardError = true;
-            process.StartInfo.CreateNoWindow = true;
-            process.Start();
-            process.StandardInput.WriteLine("a.exe > out.txt < in.txt");//输入命令
-            process.StandardInput.WriteLine("exit");
-            string sh = process.StandardOutput.ReadToEnd();
-            process.Close();
-            textOutput.AppendText(sh);// 追加文本，并且使得光标定位到插入地方。
-            textOutput.ScrollToCaret();
-            this.textOutput.Focus();//获取焦点
-            this.textOutput.Select(this.textOutput.TextLength, 0);//光标定位到文本最后
-            this.textOutput.ScrollToCaret();//滚动到光标处
+           
             
         }
 
@@ -92,7 +78,7 @@ namespace XMatrix_Local_Judge
             CmdProcess.BeginErrorReadLine();
 
             // 如果打开注释，则以同步方式执行命令，此例子中用Exited事件异步执行。  
-             CmdProcess.WaitForExit();       
+             //CmdProcess.WaitForExit();       
         }
         private void p_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
@@ -123,12 +109,31 @@ namespace XMatrix_Local_Judge
 
         private void CmdProcess_Exited(object sender, EventArgs e)
         {
-            // 执行结束后触发  
-            //textOutput.ScrollToCaret();
-            //this.textOutput.Focus();//获取焦点
-            //this.textOutput.Select(this.textOutput.TextLength, 0);//光标定位到文本最后
-            //this.textOutput.ScrollToCaret();//滚动到光标处
+            Process process = new Process();
+            process.StartInfo.FileName = "cmd.exe";
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.RedirectStandardInput = true;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.RedirectStandardError = true;
+            process.StartInfo.CreateNoWindow = true;
+            process.Start();
+            process.StandardInput.WriteLine("a.exe > out.txt < in.txt");//输入命令
+            process.StandardInput.WriteLine("exit");
+            string sh = process.StandardOutput.ReadToEnd();
+            process.Close();
+            /*
+            textOutput.AppendText(sh);// 追加文本，并且使得光标定位到插入地方。
+            textOutput.ScrollToCaret();
+            this.textOutput.Focus();//获取焦点
+            this.textOutput.Select(this.textOutput.TextLength, 0);//光标定位到文本最后
+            this.textOutput.ScrollToCaret();//滚动到光标处
+            */
+
         }
+    
+
+
+
         private void Form1_ResizeEnd(object sender, EventArgs e)
         {
             this.textOutput.Height = this.Height - this.textOutput.Top - 50; // 动态调整textbox2大小
