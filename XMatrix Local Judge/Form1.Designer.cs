@@ -98,6 +98,7 @@
             this.comboCom.Name = "comboCom";
             this.comboCom.Size = new System.Drawing.Size(116, 25);
             this.comboCom.TabIndex = 4;
+            this.comboCom.Text = "GNU GCC";
             // 
             // webProgram
             // 
