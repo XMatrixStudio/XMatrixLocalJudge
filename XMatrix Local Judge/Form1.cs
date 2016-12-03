@@ -20,6 +20,8 @@ namespace XMatrix_Local_Judge
         public event DelReadStdOutput ReadStdOutput;
         public event DelReadErrOutput ReadErrOutput;
         String problemInfo; //储存IP
+        String outputTextStr; //储存outputText的Text
+        bool isCompilerSucceed;
 
         public Form1()
         {
@@ -43,11 +45,14 @@ namespace XMatrix_Local_Judge
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.textOutput.Text = "";
             StreamWriter sw = new StreamWriter("a.c");
             sw.Write(textInput.Text);
             sw.Close();
-            RealAction("C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\gcc.exe", "a.c -std=c99");
+            if (File.Exists("a.exe"))
+                File.Delete("a.exe");
+            RealAction("D:\\ITsoftware\\Dev-Cpp\\MinGW64\\bin\\gcc.exe", "a.c -std=c99");
+            //RealAction("C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\gcc.exe", "a.c -std=c99");
            // RealAction("ping.exe", "192.168.123.1");
             //调用进程
             
@@ -100,11 +105,13 @@ namespace XMatrix_Local_Judge
         private void ReadStdOutputAction(string result)
         {
             this.textOutput.AppendText(result + "\r\n");
+            //outputTextStr += result + "\r\n";
         }
 
         private void ReadErrOutputAction(string result)
         {
             this.textOutput.AppendText(result + "\r\n");
+            //outputTextStr += result + "\r\n";
         }
 
         private void CmdProcess_Exited(object sender, EventArgs e)
@@ -117,7 +124,16 @@ namespace XMatrix_Local_Judge
             process.StartInfo.RedirectStandardError = true;
             process.StartInfo.CreateNoWindow = true;
             process.Start();
-            process.StandardInput.WriteLine("a.exe > out.txt < in.txt");//输入命令
+            process.StandardInput.WriteLine("erase out.txt");
+            if (File.Exists("a.exe"))
+            {
+                isCompilerSucceed = true;
+                process.StandardInput.WriteLine("a.exe > out.txt < in.txt");//输入命令
+            }
+            else
+            {
+                isCompilerSucceed = false;
+            }
             process.StandardInput.WriteLine("exit");
             string sh = process.StandardOutput.ReadToEnd();
             process.Close();
@@ -128,11 +144,20 @@ namespace XMatrix_Local_Judge
             this.textOutput.Select(this.textOutput.TextLength, 0);//光标定位到文本最后
             this.textOutput.ScrollToCaret();//滚动到光标处
             */
-
+            if (isCompilerSucceed)
+            {
+                if (UnderJudging("out.txt", "std.txt"))
+                {
+                    Action<string> actionDelegate = (x) => { this.textOutput.Text = "Accept!\n"; };
+                    this.textOutput.Invoke(actionDelegate, "");
+                }
+                else
+                {
+                    Action<string> actionDelegate = (x) => { this.textOutput.Text = "Wrong Answer!\n"; };
+                    this.textOutput.Invoke(actionDelegate, "");
+                }
+            }
         }
-    
-
-
 
         private void Form1_ResizeEnd(object sender, EventArgs e)
         {
@@ -163,6 +188,16 @@ namespace XMatrix_Local_Judge
         {
             String web = listProgram.SelectedItem.ToString();
             webProgram.Navigate("http://" + problemInfo + "/" + web + ".html");//加载网页
+        }
+
+        private bool UnderJudging(String OutputFile, String StdFile)
+        {
+            StreamReader output = new StreamReader(OutputFile, Encoding.Default);
+            StreamReader std = new StreamReader(StdFile, Encoding.Default);
+            String std_end;
+            while (output.ReadLine() != (std_end = std.ReadLine()) || std_end == null)
+                return false;
+            return true;
         }
     }
 }

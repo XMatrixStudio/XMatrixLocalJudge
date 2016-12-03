@@ -16,3 +16,12 @@ D:\Project\XmatrixLoaclJudge\XMatrixLocalJudge\XMatrix Local Judge\obj\Debug\XMa
 D:\Project\XmatrixLoaclJudge\XMatrixLocalJudge\XMatrix Local Judge\obj\Debug\XMatrix_Local_Judge.Properties.Resources.resources
 D:\Project\XmatrixLoaclJudge\XMatrixLocalJudge\XMatrix Local Judge\obj\Debug\SE_One_Local_Judge.formsetting.resources
 D:\Project\XmatrixLoaclJudge\XMatrixLocalJudge\XMatrix Local Judge\obj\Debug\XMatrix Local Judge.csproj.GenerateResource.Cache
+C:\Users\mega\Desktop\XMatrixLocalJudge\XMatrix Local Judge\obj\Debug\XMatrix Local Judge.exe
+C:\Users\mega\Desktop\XMatrixLocalJudge\XMatrix Local Judge\obj\Debug\XMatrix Local Judge.pdb
+C:\Users\mega\Desktop\XMatrixLocalJudge\XMatrix Local Judge\bin\Debug\XMatrix Local Judge.exe
+C:\Users\mega\Desktop\XMatrixLocalJudge\XMatrix Local Judge\bin\Debug\XMatrix Local Judge.pdb
+C:\Users\mega\Desktop\XMatrixLocalJudge\XMatrix Local Judge\obj\Debug\XMatrix Local Judge.csprojResolveAssemblyReference.cache
+C:\Users\mega\Desktop\XMatrixLocalJudge\XMatrix Local Judge\obj\Debug\XMatrix_Local_Judge.Form1.resources
+C:\Users\mega\Desktop\XMatrixLocalJudge\XMatrix Local Judge\obj\Debug\XMatrix_Local_Judge.Properties.Resources.resources
+C:\Users\mega\Desktop\XMatrixLocalJudge\XMatrix Local Judge\obj\Debug\SE_One_Local_Judge.formsetting.resources
+C:\Users\mega\Desktop\XMatrixLocalJudge\XMatrix Local Judge\obj\Debug\XMatrix Local Judge.csproj.GenerateResource.Cache
