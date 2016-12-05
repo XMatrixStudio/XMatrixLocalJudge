@@ -19,8 +19,11 @@ namespace XMatrix_Local_Judge
     {
         public event DelReadStdOutput ReadStdOutput;
         public event DelReadErrOutput ReadErrOutput;
+        String XMatrixIPURL = "matrix.icytown.com";
         String problemInfo; //储存IP
         String outputTextStr; //储存outputText的Text
+        int problemID = 1001;
+
         bool isCompilerSucceed;
 
         public Form1()
@@ -39,19 +42,20 @@ namespace XMatrix_Local_Judge
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            webProgram.Navigate(System.AppDomain.CurrentDomain.BaseDirectory + "welcome.html");//加载网页
+            //webProgram.Navigate(System.AppDomain.CurrentDomain.BaseDirectory + "welcome.html");//加载网页
+            webProgram.Navigate(XMatrixIPURL + "/" + "welcome.html");//加载网页
             buttonUpdate_Click(null, null);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.textOutput.Text = "";
-            StreamWriter sw = new StreamWriter("a.c");
+            StreamWriter sw = new StreamWriter("temp/a.c");
             sw.Write(textInput.Text);
             sw.Close();
-            if (File.Exists("a.exe"))
-                File.Delete("a.exe");
-            RealAction("D:\\ITsoftware\\Dev-Cpp\\MinGW64\\bin\\gcc.exe", "a.c -std=c99");
+            if (File.Exists("temp/a.exe"))
+                File.Delete("temp/a.exe");
+            RealAction("D:\\ITsoftware\\Dev-Cpp\\MinGW64\\bin\\gcc.exe", "temp/a.c -o temp/a.exe -std=c99");
             //RealAction("C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\gcc.exe", "a.c -std=c99");
            // RealAction("ping.exe", "192.168.123.1");
             //调用进程
@@ -124,11 +128,15 @@ namespace XMatrix_Local_Judge
             process.StartInfo.RedirectStandardError = true;
             process.StartInfo.CreateNoWindow = true;
             process.Start();
+            //process.StandardInput.WriteLine("erase temp/out.txt");
+            process.StandardInput.WriteLine("cd temp");  // CMD抽风，只能这样删out.txt
             process.StandardInput.WriteLine("erase out.txt");
-            if (File.Exists("a.exe"))
+            process.StandardInput.WriteLine("cd ..");
+            if (File.Exists("temp/a.exe"))
             {
                 isCompilerSucceed = true;
-                process.StandardInput.WriteLine("a.exe > out.txt < in.txt");//输入命令
+                // 这个地方很纠结，cmd用法很尴尬
+                process.StandardInput.WriteLine("\"%cd%/temp/a.exe\" > temp/out.txt < std/" + problemID.ToString() + "/in.txt");//输入命令
             }
             else
             {
@@ -146,7 +154,7 @@ namespace XMatrix_Local_Judge
             */
             if (isCompilerSucceed)
             {
-                if (UnderJudging("out.txt", "std.txt"))
+                if (UnderJudging("temp/out.txt", "std/" + problemID.ToString() + "/std.txt"))
                 {
                     Action<string> actionDelegate = (x) => { this.textOutput.Text = "Accept!\n"; };
                     this.textOutput.Invoke(actionDelegate, "");
@@ -188,6 +196,7 @@ namespace XMatrix_Local_Judge
         {
             String web = listProgram.SelectedItem.ToString();
             webProgram.Navigate("http://" + problemInfo + "/" + web + ".html");//加载网页
+            problemID = int.Parse(web.Substring(0, 4));
         }
 
         private bool UnderJudging(String OutputFile, String StdFile)
